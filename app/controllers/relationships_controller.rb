@@ -10,7 +10,7 @@ class RelationshipsController < ApplicationController
       render json: user
     end
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'User not found' }, status: :not_found
+    render json: { error: 'You cannot follow a user that does not exist.' }, status: :not_found
   rescue ActiveRecord::RecordNotUnique
     render json: { error: 'You are already following that user.' }, status: :unprocessable_entity
   end
